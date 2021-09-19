@@ -11,7 +11,7 @@ Mi nombre es José Bermúdez. Soy programador de software con enfoque al desarro
 + Otros
     - ⏰ Git y Github
 
-Visita mi portafolio en: http://bermudezweb.ga
+Visita mi portafolio en: https://bermudezweb.ga
 
 <!---
 JBermudezG/JBermudezG is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.

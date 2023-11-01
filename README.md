@@ -1,4 +1,4 @@
-👋 Hi, I’m @JBermudezG
+👋 Hi, I’m @BermudezTech
 
 Mi nombre es José Bermúdez. Soy programador de software con enfoque al desarrollo web especialmente frontend. Llevo 3 años desarrollando sitios y aplicaciones web. Tengo experiencia en:
 + Front-End

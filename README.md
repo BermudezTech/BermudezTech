@@ -4,7 +4,7 @@
 
 Mi nombre es José Eduardo Bermúdez Garavito. Ingeniero en formación y desarrollador web con pasión por la tecnología y la programación. En constante búsqueda de oportunidades para aprender y crecer profesionalmente. Comprometido con la excelencia académica y el desarrollo de soluciones web innovadoras. Con habilidades técnicas sólidas y un enfoque proactivo, aspiro a contribuir significativamente al mundo de la tecnología.
 
-
+<h2>Tecnologías y herramientas</h2>
 -   Front-End
     -   📄 HTML
     -   📖 CSS (Flexbox, CSS Grid, Responsible Design, Bootstrap, SASS)
@@ -14,10 +14,12 @@ Mi nombre es José Eduardo Bermúdez Garavito. Ingeniero en formación y desarro
     -   💻 PHP (Integración con bases de datos MySQL)
 -   Otros
     -   ⏰ Git y Github
+<h3>¿Te gustaría ver mis proyectos?</h3>
 
-<h3>¿Deseas ver mis proyectos?</h3>
  🌐 **Visita mi portafolio en:** https://bermudezweb.com
 
+ ====== OTROS ======
+ 
 <!---
 JBermudezG/JBermudezG is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 You can click the Preview link to take a look at your changes.

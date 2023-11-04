@@ -6,7 +6,7 @@ Mi nombre es José Eduardo Bermúdez Garavito. Ingeniero en formación y desarro
 
 <h2>Tecnologías y herramientas</h2>
 
-<h3>Front End</h3
+<h3>Front End</h3>
 <div style="display: flex;">
  <img src="https://img.shields.io/badge/HTML5-logo?logo=html5&amp;logoColor=white&amp;labelColor=007d00&amp;color=141413" alt="HTML5" style="width: 100px">
  <img src="https://img.shields.io/badge/HTML5-logo?logo=html5&amp;logoColor=white&amp;labelColor=007d00&amp;color=141413" alt="HTML5" style="width: 100px">

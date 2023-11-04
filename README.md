@@ -6,7 +6,7 @@ Mi nombre es José Eduardo Bermúdez Garavito. Ingeniero en formación y desarro
 
 <h2>Tecnologías y herramientas</h2>
 
-<h3>Front End</h3>
+<h3>Front-End</h3>
 <div style="display: flex">
  <img src="https://img.shields.io/badge/HTML5-logo?logo=html5&amp;logoColor=white&amp;labelColor=007d00&amp;color=141413" alt="HTML5" style="width: auto; height: 30px">
  <img src="https://img.shields.io/badge/CSS3-logo?logo=css3&amp;logoColor=white&amp;labelColor=007d00&amp;color=141413" alt="CSS3" style="width: auto; height: 30px">
@@ -16,7 +16,7 @@ Mi nombre es José Eduardo Bermúdez Garavito. Ingeniero en formación y desarro
  <img src="https://img.shields.io/badge/REACT_JS-logo?logo=react&amp;logoColor=white&amp;labelColor=007d00&amp;color=141413" alt="REACT" style="width: auto; height: 30px">
 </div>
 
-<h3>Back End</h3>
+<h3>Back-End</h3>
 <div style="display:flex">
  <img src="https://img.shields.io/badge/NODE_JS-logo?logo=nodedotjs&amp;logoColor=white&amp;labelColor=007d00&amp;color=141413" alt="node" style="width: auto; height: 30px">
  <img src="https://img.shields.io/badge/PHP-logo?logo=php&amp;logoColor=white&amp;labelColor=007d00&amp;color=141413" alt="php" style="width: auto; height: 30px">

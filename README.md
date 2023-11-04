@@ -2,7 +2,8 @@
 <h3 align="center">Desarrollador de Software, Estudiante de Ingeniería y Creador de contenido</h2>
 <img alt="banner" width="100%" src="/Banner.png"/>
 
-Mi nombre es José Eduardo Bermúdez Garavito. Soy programador de software con enfoque al desarrollo web especialmente frontend. Llevo 3 años desarrollando sitios y aplicaciones web. Tengo experiencia en:
+Mi nombre es José Eduardo Bermúdez Garavito. Ingeniero en formación y desarrollador web con pasión por la tecnología y la programación. En constante búsqueda de oportunidades para aprender y crecer profesionalmente. Comprometido con la excelencia académica y el desarrollo de soluciones web innovadoras. Con habilidades técnicas sólidas y un enfoque proactivo, aspiro a contribuir significativamente al mundo de la tecnología.
+
 
 -   Front-End
     -   📄 HTML
@@ -14,7 +15,8 @@ Mi nombre es José Eduardo Bermúdez Garavito. Soy programador de software con e
 -   Otros
     -   ⏰ Git y Github
 
-Visita mi portafolio en: https://bermudezweb.com
+<h3>¿Deseas ver mis proyectos?</h3>
+ 🌐 **Visita mi portafolio en:** https://bermudezweb.com
 
 <!---
 JBermudezG/JBermudezG is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.

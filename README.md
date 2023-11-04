@@ -34,7 +34,7 @@ Mi nombre es José Eduardo Bermúdez Garavito. Ingeniero en formación y desarro
 </div>
 <h2>¿Te gustaría ver mis proyectos?</h2>
 
- ### 🌐 **Visita mi portafolio en:** 
+ ### 🌐 **Visita mi portafolio:** 
  https://bermudeztech.com
  
 <!---

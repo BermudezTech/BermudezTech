@@ -34,7 +34,8 @@ Mi nombre es José Eduardo Bermúdez Garavito. Ingeniero en formación y desarro
 </div>
 <h2>¿Te gustaría ver mis proyectos?</h2>
 
- ### 🌐 **Visita mi portafolio en:** https://bermudeztech.com
+ ### 🌐 **Visita mi portafolio en:** 
+ https://bermudeztech.com
  
 <!---
 JBermudezG/JBermudezG is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.

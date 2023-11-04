@@ -2,7 +2,7 @@
 <h3 align="center">Desarrollador de Software, Estudiante de Ingeniería y Creador de contenido</h2>
 <img alt="banner" width="100%" src="/Banner.png"/>
 
-Mi nombre es José Eduardo Bermúdez Garavito. Ingeniero en formación y desarrollador web con pasión por la tecnología y la programación. En constante búsqueda de oportunidades para aprender y crecer profesionalmente. Comprometido con la excelencia académica y el desarrollo de soluciones web innovadoras. Con habilidades técnicas sólidas y un enfoque proactivo, aspiro a contribuir significativamente al mundo de la tecnología.
+Mi nombre es José Eduardo Bermúdez Garavito. Ingeniero en formación y desarrollador web con pasión por la tecnología y la programación. En constante búsqueda de oportunidades para aprender y crecer profesionalmente. Con habilidades técnicas sólidas y un enfoque proactivo, aspiro a contribuir significativamente al mundo de la tecnología.
 
 <h2>Tecnologías y herramientas</h2>
 

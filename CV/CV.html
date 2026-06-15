@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - José Eduardo Bermúdez | Software Engineer</title>
+    <!-- Tailwind CSS for modern responsive styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter for professional typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome for clean, modern contact icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        // Custom premium brand colors that can be modified by the theme switcher
+                        brand: {
+                            50: '#f0f7ff',
+                            100: '#e0effe',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                            800: '#1e40af',
+                            900: '#1e3a8a',
+                            dark: '#0f172a',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* General page configuration */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+            color: #1e293b;
+        }
+
+        /* Outline highlighting when editing is active */
+        .editable-active [contenteditable="true"] {
+            outline: 2px dashed #3b82f6;
+            outline-offset: 4px;
+            background-color: #eff6ff;
+            border-radius: 4px;
+            transition: all 0.2s ease;
+        }
+
+        /* Smooth page breaks and styling specifically for PDF/Printing */
+        @media print {
+            * {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
+            html {
+                font-size: 11.5px !important;
+                /* Scales down layout typography and spacing proportionally */
+            }
+
+            body {
+                background-color: #ffffff !important;
+                /* Normal white document background */
+            }
+
+            .no-print {
+                display: none !important;
+            }
+
+            /* Remove card shadow, borders, margins to make it flow as a single document page */
+            main {
+                padding: 0 !important;
+                margin: 0 !important;
+                max-width: 100% !important;
+            }
+
+            main>div {
+                box-shadow: none !important;
+                border: none !important;
+                padding: 0 !important;
+            }
+
+            .section-block {
+                page-break-inside: avoid;
+            }
+
+            @page {
+                size: letter;
+                margin: 0.8cm 1cm;
+            }
+
+            .metric-badge {
+                background: none !important;
+                border: none !important;
+                padding: 0 !important;
+                color: inherit !important;
+                font-weight: inherit !important;
+                font-size: inherit !important;
+            }
+
+            .metric-badge::before,
+            .metric-badge::after {
+                content: "" !important;
+            }
+        }
+
+        /* Metric badge styling */
+        .metric-badge {
+            background-color: #dbeafe;
+            color: #1e40af;
+            font-weight: 600;
+            padding: 0.125rem 0.375rem;
+            border-radius: 0.25rem;
+            border: 1px solid #bfdbfe;
+        }
+
+        .metric-badge::before {
+            content: "[";
+        }
+
+        .metric-badge::after {
+            content: "]";
+        }
+
+        .editable-active .metric-badge {
+            background-color: #fef08a;
+            color: #854d0e;
+            border-color: #fef08a;
+        }
+    </style>
+</head>
+
+<body class="min-h-screen bg-slate-50 text-slate-800 antialiased selection:bg-blue-100 pb-16">
+
+    <!-- Control Panel (Hidden on Print) -->
+    <div class="no-print bg-slate-900 text-white sticky top-0 z-50 shadow-md">
+        <div class="max-w-4xl mx-auto px-4 py-3 flex flex-wrap items-center justify-between gap-3">
+            <div class="flex items-center space-x-2">
+                <span class="bg-blue-600 p-1.5 rounded text-white font-bold text-sm">JB</span>
+                <span class="font-semibold text-sm sm:text-base">Panel de Personalización de CV</span>
+            </div>
+
+            <div class="flex flex-wrap items-center gap-2">
+                <!-- Theme Switcher -->
+                <div class="flex items-center space-x-1 bg-slate-800 p-1 rounded-md text-xs">
+                    <button onclick="changeTheme('navy')"
+                        class="theme-btn px-2 py-1 rounded bg-blue-600 text-white font-medium" id="btn-navy">Azul
+                        Ejecutivo</button>
+                    <button onclick="changeTheme('sapphire')"
+                        class="theme-btn px-2 py-1 rounded text-slate-300 hover:text-white" id="btn-sapphire">Zafiro
+                        Tech</button>
+                    <button onclick="changeTheme('slate')"
+                        class="theme-btn px-2 py-1 rounded text-slate-300 hover:text-white" id="btn-slate">Gris
+                        Minimal</button>
+                </div>
+
+                <!-- Toggle Edit Mode -->
+                <button onclick="toggleEditMode()" id="edit-mode-btn"
+                    class="bg-amber-500 hover:bg-amber-600 text-slate-900 font-semibold px-3 py-1.5 rounded-md text-xs flex items-center gap-1.5 transition-colors">
+                    <i class="fa-solid fa-pen-to-square"></i>
+                    <span>Modo Edición</span>
+                </button>
+
+                <!-- Export to PDF / Print -->
+                <button onclick="window.print()"
+                    class="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-3 py-1.5 rounded-md text-xs flex items-center gap-1.5 transition-colors">
+                    <i class="fa-solid fa-print"></i>
+                    <span>Guardar / Imprimir PDF</span>
+                </button>
+            </div>
+        </div>
+        <!-- Live notification bar inside the control panel -->
+        <div class="bg-blue-950 text-blue-200 text-center text-xs py-1 px-4 border-t border-slate-800">
+            💡 <span class="font-semibold">Sugerencia ATS:</span> Los campos entre corchetes <code
+                class="bg-slate-800 px-1 py-0.5 rounded text-yellow-300">[como este]</code> son métricas interactivas.
+            ¡Activa el Modo Edición y personalízalas con tus datos reales!
+        </div>
+    </div>
+
+    <!-- Custom Toast Notification System (Replaces alert) -->
+    <div id="toast"
+        class="no-print fixed bottom-5 right-5 z-50 bg-slate-900 text-white px-4 py-3 rounded-lg shadow-xl translate-y-20 opacity-0 transition-all duration-300 flex items-center gap-3 border border-slate-800">
+        <div class="p-1 bg-blue-600 rounded-full text-xs">
+            <i class="fa-solid fa-info px-1"></i>
+        </div>
+        <p class="text-sm font-medium" id="toast-message">Mensaje del sistema</p>
+    </div>
+
+    <!-- Main Resume Container -->
+    <main class="max-w-4xl mx-auto px-4 sm:px-6 md:px-8 pt-8 sm:pt-12">
+        <div class="bg-white rounded-xl shadow-lg border border-slate-100 overflow-hidden">
+
+            <!-- CV Title Accent Bar (Changes with theme) -->
+            <div id="theme-banner" class="h-2.5 bg-gradient-to-r from-brand-900 via-brand-600 to-brand-500"></div>
+
+            <div class="p-8 sm:p-10 md:p-12">
+                <!-- Header: Personal Info & Identity -->
+                <header
+                    class="border-b border-slate-100 pb-8 mb-8 print:pb-6 print:mb-6 print-border-color section-block">
+                    <div
+                        class="flex flex-col print:flex-row md:flex-row md:justify-between md:items-center print:items-center gap-6 print:gap-4">
+                        <div
+                            class="flex flex-col print:flex-row sm:flex-row gap-6 items-center print:items-start sm:items-start text-center print:text-left sm:text-left print:gap-4">
+                            <!-- Foto del perfil -->
+                            <div class="flex-shrink-0">
+                                <img src="photo.png" alt="José Eduardo Bermúdez"
+                                    class="w-28 sm:w-36 print:w-28 aspect-[3/4] rounded-xl object-cover">
+                            </div>
+                            <div>
+                                <h1 id="cv-name" contenteditable="false"
+                                    class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mb-2 print-primary-color">
+                                    José Eduardo Bermúdez Garavito</h1>
+                                <p id="cv-title" contenteditable="false"
+                                    class="text-lg sm:text-xl font-medium text-brand-600 tracking-wide mb-4 print-primary-color">
+                                    Ingeniero de Software Full-Stack | Ingeniero Mecatrónico</p>
+                                <div
+                                    class="flex flex-wrap justify-center print:justify-start sm:justify-start gap-x-4 gap-y-2 text-sm text-slate-500 font-medium">
+                                    <span class="flex items-center gap-1">
+                                        <span class="text-slate-400 font-semibold print:text-slate-600">Ubicación:</span> Bogotá, Colombia
+                                    </span>
+                                    <span
+                                        class="flex items-center gap-1 cursor-pointer hover:text-brand-600 transition-colors"
+                                        onclick="copyContact('jose@bermudeztech.com', '¡Correo copiado!')">
+                                        <span class="text-slate-400 font-semibold print:text-slate-600">Correo:</span> jose@bermudeztech.com
+                                    </span>
+                                    <a href="tel:+573123825084"
+                                        class="flex items-center gap-1 hover:text-brand-600 transition-colors">
+                                        <span class="text-slate-400 font-semibold print:text-slate-600">Teléfono:</span> (+57) 3123825084
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Contact Links Buttons (ATS reads text naturally) -->
+                        <div
+                            class="flex flex-col print:flex-col sm:flex-row md:flex-col gap-3 sm:gap-6 md:gap-2 print:gap-1 text-base text-slate-500 font-medium print:text-slate-700 print:text-base print:whitespace-nowrap">
+                            <a href="https://bermudeztech.com" target="_blank"
+                                class="flex items-center gap-1.5 hover:text-brand-600 transition-colors">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="w-4 h-4 text-slate-400 fill-current transition-colors">
+                                    <path d="M351.9 280l-190.9 0c2.9 64.5 17.2 123.9 37.5 167.4 11.4 24.5 23.7 41.8 35.1 52.4 11.2 10.5 18.9 12.2 22.9 12.2s11.7-1.7 22.9-12.2c11.4-10.6 23.7-28 35.1-52.4 20.3-43.5 34.6-102.9 37.5-167.4zM160.9 232l190.9 0C349 167.5 334.7 108.1 314.4 64.6 303 40.2 290.7 22.8 279.3 12.2 268.1 1.7 260.4 0 256.4 0s-11.7 1.7-22.9 12.2c-11.4 10.6-23.7 28-35.1 52.4-20.3 43.5-34.6 102.9-37.5 167.4zm-48 0C116.4 146.4 138.5 66.9 170.8 14.7 78.7 47.3 10.9 131.2 1.5 232l111.4 0zM1.5 280c9.4 100.8 77.2 184.7 169.3 217.3-32.3-52.2-54.4-131.7-57.9-217.3L1.5 280zm398.4 0c-3.5 85.6-25.6 165.1-57.9 217.3 92.1-32.7 159.9-116.5 169.3-217.3l-111.4 0zm111.4-48C501.9 131.2 434.1 47.3 342 14.7 374.3 66.9 396.4 146.4 399.9 232l111.4 0z"/>
+                                </svg>
+                                <span>bermudeztech.com</span>
+                            </a>
+                            <a href="https://www.linkedin.com/in/jose-eduardo-bermudez/" target="_blank"
+                                class="flex items-center gap-1.5 hover:text-brand-600 transition-colors">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="w-4 h-4 text-slate-400 fill-current transition-colors">
+                                    <path d="M416 32L31.9 32C14.3 32 0 46.5 0 64.3L0 447.7C0 465.5 14.3 480 31.9 480L416 480c17.6 0 32-14.5 32-32.3l0-383.4C448 46.5 433.6 32 416 32zM135.4 416l-66.4 0 0-213.8 66.5 0 0 213.8-.1 0zM102.2 96a38.5 38.5 0 1 1 0 77 38.5 38.5 0 1 1 0-77zM384.3 416l-66.4 0 0-104c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9l0 105.8-66.4 0 0-213.8 63.7 0 0 29.2 .9 0c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9l0 117.2z"/>
+                                </svg>
+                                <span>in/jose-eduardo-bermudez</span>
+                            </a>
+                            <a href="https://github.com/BermudezTech" target="_blank"
+                                class="flex items-center gap-1.5 hover:text-brand-600 transition-colors">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="w-4 h-4 text-slate-400 fill-current transition-colors">
+                                    <path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3 .3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5 .3-6.2 2.3zm44.2-1.7c-2.9 .7-4.9 2.6-4.6 4.9 .3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM252.8 8c-138.7 0-244.8 105.3-244.8 244 0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1 100-33.2 167.8-128.1 167.8-239 0-138.7-112.5-244-251.2-244zM105.2 352.9c-1.3 1-1 3.3 .7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3 .3 2.9 2.3 3.9 1.6 1 3.6 .7 4.3-.7 .7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3 .7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3 .7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/>
+                                </svg>
+                                <span>BermudezTech</span>
+                            </a>
+                        </div>
+                    </div>
+                </header>
+
+                <!-- Two-Column Grid for main body content to utilize space beautifully -->
+                <div
+                    class="grid grid-cols-1 print:grid-cols-10 lg:grid-cols-3 gap-y-8 md:gap-y-10 lg:gap-x-[30px] print:gap-x-[24px] print:gap-y-4">
+
+                    <!-- Left Sidebar (Skills, Education, Languages) -->
+                    <div class="space-y-5 print:space-y-3 print:col-span-3 lg:col-span-1">
+
+                        <!-- Skills Section -->
+                        <section class="section-block">
+                            <h2
+                                class="text-sm font-extrabold uppercase tracking-widest text-brand-900 mb-4 print:mb-2 flex items-center gap-2 print-primary-color">
+                                <!-- <i class="fa-solid fa-gears text-brand-500"></i> --> Competencias Técnicas
+                            </h2>
+                            <div class="space-y-4">
+                                <div>
+                                    <h3 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Frontend
+                                    </h3>
+                                    <div class="flex flex-wrap gap-1.5">
+                                        <span
+                                            class="px-2.5 py-1 bg-slate-100 text-slate-700 rounded-md text-[10px] print:text-[8px] font-medium border border-slate-200">TypeScript</span>
+                                        <span
+                                            class="px-2.5 py-1 bg-slate-100 text-slate-700 rounded-md text-[10px] print:text-[8px] font-medium border border-slate-200">React</span>
+                                        <span
+                                            class="px-2.5 py-1 bg-slate-100 text-slate-700 rounded-md text-[10px] print:text-[8px] font-medium border border-slate-200">Next.js</span>
+                                        <span
+                                            class="px-2.5 py-1 bg-slate-100 text-slate-700 rounded-md text-[10px] print:text-[8px] font-medium border border-slate-200">React
+                                            Native</span>
+                                        <span
+                                            class="px-2.5 py-1 bg-slate-100 text-slate-700 rounded-md text-[10px] print:text-[8px] font-medium border border-slate-200">Tailwind
+                                            CSS</span>
+                                        <span
+                                            class="px-2.5 py-1 bg-slate-100 text-slate-700 rounded-md text-[10px] print:text-[8px] font-medium border border-slate-200">Shadcn/UI</span>
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <h3 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Backend &
+                                        Bases de Datos</h3>
+                                    <div class="flex flex-wrap gap-1.5">
+                                        <span
+                                            class="px-2.5 py-1 bg-slate-100 text-slate-700 rounded-md text-[10px] print:text-[8px] font-medium border border-slate-200">Node.js</span>
+                                        <span
+                                            class="px-2.5 py-1 bg-slate-100 text-slate-700 rounded-md text-[10px] print:text-[8px] font-medium border border-slate-200">NestJS</span>
+                                        <span
+                                            class="px-2.5 py-1 bg-slate-100 text-slate-700 rounded-md text-[10px] print:text-[8px] font-medium border border-slate-200">Prisma
+                                            ORM</span>
+                                        <span
+                                            class="px-2.5 py-1 bg-slate-100 text-slate-700 rounded-md text-[10px] print:text-[8px] font-medium border border-slate-200">PostgreSQL</span>
+                                        <span
+                                            class="px-2.5 py-1 bg-slate-100 text-slate-700 rounded-md text-[10px] print:text-[8px] font-medium border border-slate-200">MySQL</span>
+                                        <span
+                                            class="px-2.5 py-1 bg-slate-100 text-slate-700 rounded-md text-[10px] print:text-[8px] font-medium border border-slate-200">REST
+                                            APIs</span>
+                                    </div>
+                                </div>
+
+                                <!-- Subsección comentada temporalmente
+                                <div>
+                                    <h3 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Hardware & IoT (Mecatrónica)</h3>
+                                    <div class="flex flex-wrap gap-1.5">
+                                        <span class="px-2.5 py-1 bg-slate-100 text-slate-700 rounded-md text-[10px] print:text-[8px] font-medium border border-slate-200">Python</span>
+                                        <span class="px-2.5 py-1 bg-slate-100 text-slate-700 rounded-md text-[10px] print:text-[8px] font-medium border border-slate-200">Protocolo RS232</span>
+                                        <span class="px-2.5 py-1 bg-slate-100 text-slate-700 rounded-md text-[10px] print:text-[8px] font-medium border border-slate-200">Serial Comms</span>
+                                        <span class="px-2.5 py-1 bg-slate-100 text-slate-700 rounded-md text-[10px] print:text-[8px] font-medium border border-slate-200">Micro (ESP32)</span>
+                                    </div>
+                                </div>
+                                -->
+
+                                <div>
+                                    <h3 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">DevOps &
+                                        Herramientas</h3>
+                                    <div class="flex flex-wrap gap-1.5">
+                                        <span
+                                            class="px-2.5 py-1 bg-slate-100 text-slate-700 rounded-md text-[10px] print:text-[8px] font-medium border border-slate-200">Docker</span>
+                                        <span
+                                            class="px-2.5 py-1 bg-slate-100 text-slate-700 rounded-md text-[10px] print:text-[8px] font-medium border border-slate-200">Git/GitHub</span>
+                                        <span
+                                            class="px-2.5 py-1 bg-slate-100 text-slate-700 rounded-md text-[10px] print:text-[8px] font-medium border border-slate-200">CI/CD</span>
+                                        <span
+                                            class="px-2.5 py-1 bg-slate-100 text-slate-700 rounded-md text-[10px] print:text-[8px] font-medium border border-slate-200">AWS
+                                            (EC2)</span>
+                                        <span
+                                            class="px-2.5 py-1 bg-slate-100 text-slate-700 rounded-md text-[10px] print:text-[8px] font-medium border border-slate-200">Electron</span>
+                                        <span
+                                            class="px-2.5 py-1 bg-slate-100 text-slate-700 rounded-md text-[10px] print:text-[8px] font-medium border border-slate-200">Linux</span>
+                                        <span
+                                            class="px-2.5 py-1 bg-slate-100 text-slate-700 rounded-md text-[10px] print:text-[8px] font-medium border border-slate-200">Desarrollo
+                                            asistido por IA</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Education Section -->
+                        <section class="section-block pt-2 print:pt-0">
+                            <h2
+                                class="text-sm font-extrabold uppercase tracking-widest text-brand-900 mb-4 print:mb-2 flex items-center gap-2 print-primary-color">
+                                <!-- <i class="fa-solid fa-graduation-cap text-brand-500"></i> --> Educación
+                            </h2>
+                            <div class="space-y-4 print:space-y-3">
+                                <div>
+                                    <span class="text-xs font-bold text-slate-400 block mb-0.5">Graduado en 2025</span>
+                                    <h3 class="text-sm font-bold text-slate-900" contenteditable="false" id="edu-1">
+                                        Ingeniería Mecatrónica</h3>
+                                    <p class="text-xs text-slate-600" contenteditable="false" id="edu-1-school">Escuela
+                                        Tecnológica Instituto Técnico Central</p>
+                                </div>
+
+                                <div>
+                                    <span class="text-xs font-bold text-slate-400 block mb-0.5">Graduado en 2023</span>
+                                    <h3 class="text-sm font-bold text-slate-900" contenteditable="false" id="edu-2">
+                                        Tecnólogo en Análisis y Desarrollo de Sistemas de Información</h3>
+                                    <p class="text-xs text-slate-600" contenteditable="false" id="edu-2-school">SENA</p>
+                                </div>
+
+                                <div>
+                                    <span class="text-xs font-bold text-slate-400 block mb-0.5">Graduado en 2019</span>
+                                    <h3 class="text-sm font-bold text-slate-900" contenteditable="false" id="edu-3">
+                                        Técnico en Programación de Software</h3>
+                                    <p class="text-xs text-slate-600" contenteditable="false" id="edu-3-school">SENA</p>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Languages Section -->
+                        <section class="section-block pt-2 print:pt-0">
+                            <h2
+                                class="text-sm font-extrabold uppercase tracking-widest text-brand-900 mb-3 print:mb-2 flex items-center gap-2 print-primary-color">
+                                <!-- <i class="fa-solid fa-language text-brand-500"></i> --> Idiomas
+                            </h2>
+                            <div class="space-y-2 text-sm">
+                                <div
+                                    class="flex justify-between items-center bg-slate-50 px-3 py-1.5 rounded-lg border border-slate-200">
+                                    <span class="font-medium text-slate-700">Español</span>
+                                    <span class="text-xs font-bold text-brand-600 uppercase">Nativo</span>
+                                </div>
+                                <div
+                                    class="flex justify-between items-center bg-slate-50 px-3 py-1.5 rounded-lg border border-slate-200">
+                                    <span class="font-medium text-slate-700">Inglés</span>
+                                    <span class="text-xs font-bold text-brand-600 uppercase">B2</span>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Competencias Personales (Soft Skills) -->
+                        <section class="section-block pt-2 print:pt-0">
+                            <h2
+                                class="text-sm font-extrabold uppercase tracking-widest text-brand-900 mb-4 print:mb-2 flex items-center gap-2 print-primary-color">
+                                <!-- <i class="fa-solid fa-users text-brand-500"></i> --> Competencias Personales
+                            </h2>
+                            <div class="flex flex-wrap gap-1.5">
+                                <span
+                                    class="px-2.5 py-1 bg-slate-100 text-slate-700 rounded-md text-[10px] print:text-[8px] font-medium border border-slate-200">Trabajo
+                                    en equipo y colaboración</span>
+                                <span
+                                    class="px-2.5 py-1 bg-slate-100 text-slate-700 rounded-md text-[10px] print:text-[8px] font-medium border border-slate-200">Mentoría
+                                    y capacitación técnica</span>
+                                <span
+                                    class="px-2.5 py-1 bg-slate-100 text-slate-700 rounded-md text-[10px] print:text-[8px] font-medium border border-slate-200">Comunicación
+                                    interfuncional</span>
+                                <span
+                                    class="px-2.5 py-1 bg-slate-100 text-slate-700 rounded-md text-[10px] print:text-[8px] font-medium border border-slate-200">Autonomía
+                                    y gestión</span>
+                            </div>
+                        </section>
+
+                    </div>
+
+                    <!-- Right Sidebar / Core Content (Profile, Work Experience, Projects) -->
+                    <div class="space-y-8 print:space-y-4 print:col-span-7 lg:col-span-2">
+
+                        <!-- Profile/Summary Section -->
+                        <section class="section-block">
+                            <h2
+                                class="text-sm font-extrabold uppercase tracking-widest text-brand-900 mb-3 print:mb-2 flex items-center gap-2 print-primary-color">
+                                <!-- <i class="fa-solid fa-user text-brand-500"></i> --> Perfil Profesional
+                            </h2>
+                            <p id="profile-text" contenteditable="false"
+                                class="text-[13px] print:text-[11px] text-slate-800 leading-relaxed text-justify">
+                                Ingeniero Mecatrónico y Desarrollador Full-Stack con experiencia sólida diseñando,
+                                construyendo y desplegando aplicaciones de software orientadas a resolver problemas
+                                reales de negocio e industria. Especializado en el ecosistema JavaScript/TypeScript
+                                (React, Next.js, Node.js, NestJS) y arquitecturas robustas que integran bases de datos
+                                relacionales, aplicaciones offline-first y comunicación bidireccional con hardware
+                                (IoT/RS232). Apasionado por la optimización de flujos de trabajo de ingeniería y la
+                                automatización de procesos operativos.
+                            </p>
+                        </section>
+
+                        <!-- Work Experience Section -->
+                        <section class="section-block">
+                            <h2
+                                class="text-sm font-extrabold uppercase tracking-widest text-brand-900 mb-5 print:mb-2 flex items-center gap-2 print-primary-color">
+                                <!-- <i class="fa-solid fa-briefcase text-brand-500"></i> --> Experiencia Profesional
+                            </h2>
+
+                            <div class="space-y-6 print:space-y-4">
+                                <!-- Experience Block 1 -->
+                                <div>
+                                    <div
+                                        class="flex flex-col sm:flex-row sm:justify-between sm:items-baseline gap-1 mb-2 print:mb-1">
+                                        <h3 class="text-[15px] print:text-[13px] font-bold text-slate-900"
+                                            contenteditable="false" id="exp-role">Ingeniero de Soporte | Desarrollador
+                                            de Software</h3>
+                                        <span
+                                            class="text-xs font-semibold text-brand-600 bg-brand-50 px-2.5 py-1 rounded-full border border-brand-100 print:border-0 print:bg-transparent print:p-0 whitespace-nowrap">2024
+                                            – Actualidad</span>
+                                    </div>
+                                    <h4
+                                        class="text-[13px] print:text-[11px] font-semibold text-slate-600 mb-3 print:mb-1">
+                                        Ancoltec Soluciones Industriales</h4>
+
+                                    <ul
+                                        class="text-[13px] print:text-[11px] text-slate-800 space-y-2 print:space-y-1 list-disc list-outside pl-4 leading-relaxed">
+                                        <li contenteditable="false" id="exp-bullet-1">Lideré el diseño y desarrollo
+                                            desde cero de soluciones de software internas y comerciales de la compañía,
+                                            logrando digitalizar procesos analógicos e industriales.</li>
+                                        <li contenteditable="false" id="exp-bullet-2">Desarrollé la arquitectura e
+                                            interfaz de sistemas de uso diario para la gestión de mantenimientos e
+                                            inventarios, reduciendo en un <span class="metric-badge">80%</span> el
+                                            tiempo de entrega de informes y consulta de historiales en campo.</li>
+                                        <li contenteditable="false" id="exp-bullet-3">Implementé integraciones de
+                                            hardware con software (comunicación serial RS232 a Electron) para
+                                            automatizar la captura de datos de pesaje industrial, eliminando el error
+                                            humano de digitación en un <span class="metric-badge">100%</span>.</li>
+                                        <li contenteditable="false" id="exp-bullet-4">Brindé soporte de hardware y
+                                            software de segundo y tercer nivel en plantas de producción industrial,
+                                            garantizando la operatividad de los sistemas clave del cliente.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Projects Section -->
+                        <section class="section-block">
+                            <h2
+                                class="text-sm font-extrabold uppercase tracking-widest text-brand-900 mb-5 print:mb-2 flex items-center gap-2 print-primary-color">
+                                <!-- <i class="fa-solid fa-code-branch text-brand-500"></i> --> Proyectos Destacados
+                            </h2>
+
+                            <div class="space-y-6 print:space-y-2">
+
+                                <!-- Project 1 -->
+                                <div class="section-block pb-4 print:pb-2">
+                                    <div class="mb-1">
+                                        <h3 class="text-[15px] print:text-[13px] font-bold text-slate-900">Anku APP
+                                            <span class="text-xs font-normal text-slate-500">(Digitalización y
+                                                CMMS)</span>
+                                        </h3>
+                                        <div class="text-xs print:text-[10px] font-semibold text-brand-600 mt-0.5 mb-2">
+                                            Tecnologías: React, NestJS, PostgreSQL, IndexedDB
+                                        </div>
+                                    </div>
+                                    <ul
+                                        class="text-[13px] print:text-[11px] text-slate-800 space-y-1.5 print:space-y-1 list-disc list-outside pl-4 leading-relaxed">
+                                        <li contenteditable="false" id="project-1-bullet-1">PWA diseñada para la
+                                            digitalización de reportes de mantenimiento, inventarios y seguimiento de
+                                            activos en Ancoltec.</li>
+                                        <li contenteditable="false" id="project-1-bullet-2">Implementación de
+                                            arquitectura <strong class="text-brand-800">offline-first</strong>
+                                            utilizando IndexedDB para sincronización local y NestJS/PostgreSQL en el
+                                            servidor.</li>
+                                        <li contenteditable="false" id="project-1-bullet-3">Capacidad de operación sin
+                                            conexión a internet en áreas industriales remotas con sincronización
+                                            automática de datos.</li>
+                                    </ul>
+                                </div>
+
+                                <!-- Project 2 -->
+                                <div class="section-block pb-4 print:pb-2">
+                                    <div class="mb-1">
+                                        <h3 class="text-[15px] print:text-[13px] font-bold text-slate-900">Granulomatrix
+                                            ©
+                                            <span class="text-xs font-normal text-slate-500">(Análisis de
+                                                Granulometría)</span>
+                                        </h3>
+                                        <div class="text-xs print:text-[10px] font-semibold text-brand-600 mt-0.5 mb-2">
+                                            Tecnologías: Electron, React, Node-SerialPort, TypeScript
+                                        </div>
+                                    </div>
+                                    <ul
+                                        class="text-[13px] print:text-[11px] text-slate-800 space-y-1.5 print:space-y-1 list-disc list-outside pl-4 leading-relaxed">
+                                        <li contenteditable="false" id="project-2-bullet-1">Software de escritorio
+                                            licenciado y comercializado para el análisis de materias primas en la
+                                            industria de alimentación animal.</li>
+                                        <li contenteditable="false" id="project-2-bullet-2">Desarrollo de comunicación
+                                            bidireccional con balanzas industriales a través de protocolo <strong
+                                                class="text-brand-800">RS232/Serial</strong>.</li>
+                                        <li contenteditable="false" id="project-2-bullet-3">Automatización del registro
+                                            de pesos en tiempo real y graficado de curvas granulométricas, reduciendo
+                                            errores manuales.</li>
+                                    </ul>
+                                </div>
+
+                                <!-- Project 3 -->
+                                <!-- <div class="section-block pb-4 print:pb-2">
+                                    <div class="mb-1">
+                                        <h3 class="text-[15px] print:text-[13px] font-bold text-slate-900">Finanzas APP
+                                            <span class="text-xs font-normal text-slate-500">(Gestión Financiera
+                                                Móvil)</span>
+                                        </h3>
+                                        <div class="text-xs print:text-[10px] font-semibold text-brand-600 mt-0.5 mb-2">
+                                            Tecnologías: React Native, Node.js, PostgreSQL
+                                        </div>
+                                    </div>
+                                    <ul class="text-[13px] print:text-[11px] text-slate-800 space-y-1.5 print:space-y-1 list-disc list-outside pl-4 leading-relaxed">
+                                        <li contenteditable="false" id="project-3-bullet-1">Aplicación móvil para el control, optimización y seguimiento del flujo de caja de finanzas personales.</li>
+                                        <li contenteditable="false" id="project-3-bullet-2">Diseño y desarrollo de motor de ingesta automatizado mediante integración con APIs de correo electrónico.</li>
+                                        <li contenteditable="false" id="project-3-bullet-3">Procesamiento y parseo en tiempo real de notificaciones bancarias para poblar la base de datos sin registro manual.</li>
+                                    </ul>
+                                </div> -->
+
+                                <!-- Project 4 (Comentado temporalmente)
+                                <div class="bg-slate-50 p-5 print:p-2.5 rounded-lg border border-slate-200/60 print:border section-block">
+                                    <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+                                        <h3 class="text-base font-bold text-slate-900">Repertorio Litúrgico <span class="text-xs font-medium text-slate-500">(PWA e Intérprete Musical)</span></h3>
+                                        <span class="text-xs font-medium text-slate-500">React, MySQL, Node.js</span>
+                                    </div>
+                                    <p class="text-sm text-slate-800 leading-relaxed" contenteditable="false" id="project-4-desc">
+                                        PWA desarrollada para el despliegue y control de acordes interactivos musicales. Diseñé y construí un editor de acordes personalizado que manipula la renderización del DOM dinámicamente, permitiendo a músicos estructurar, modificar escalas tonales y añadir acordes intuitivamente sobre las letras de canciones.
+                                    </p>
+                                </div>
+                                -->
+
+                            </div>
+                        </section>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Helper scripts for interactiveness -->
+    <script>
+        // Track the current editing status
+        let isEditMode = false;
+
+        // Custom function to toggle live-editing mode on the CV
+        function toggleEditMode() {
+            isEditMode = !isEditMode;
+            const body = document.body;
+            const btn = document.getElementById('edit-mode-btn');
+
+            // Collect all elements that can be edited by the user
+            const editableIds = [
+                'cv-name', 'cv-title', 'profile-text', 'exp-role',
+                'exp-bullet-1', 'exp-bullet-2', 'exp-bullet-3', 'exp-bullet-4',
+                'project-1-bullet-1', 'project-1-bullet-2', 'project-1-bullet-3',
+                'project-2-bullet-1', 'project-2-bullet-2', 'project-2-bullet-3',
+                'project-3-bullet-1', 'project-3-bullet-2', 'project-3-bullet-3',
+                'edu-1', 'edu-1-school', 'edu-2', 'edu-2-school', 'edu-3', 'edu-3-school'
+            ];
+
+            if (isEditMode) {
+                // Activate inline edit
+                body.classList.add('editable-active');
+                editableIds.forEach(id => {
+                    const el = document.getElementById(id);
+                    if (el) el.setAttribute('contenteditable', 'true');
+                });
+
+                // Also turn metric brackets into live editable fields
+                document.querySelectorAll('.metric-badge').forEach(badge => {
+                    badge.setAttribute('contenteditable', 'true');
+                });
+
+                // Update Button appearance
+                btn.innerHTML = `<i class="fa-solid fa-check"></i> <span>Guardar Cambios</span>`;
+                btn.classList.remove('bg-amber-500', 'hover:bg-amber-600');
+                btn.classList.add('bg-emerald-600', 'hover:bg-emerald-700', 'text-white');
+
+                showToast("Modo edición activo. Haz clic en cualquier sección o número entre corchetes para editar.");
+            } else {
+                // Deactivate inline edit
+                body.classList.remove('editable-active');
+                editableIds.forEach(id => {
+                    const el = document.getElementById(id);
+                    if (el) el.setAttribute('contenteditable', 'false');
+                });
+
+                document.querySelectorAll('.metric-badge').forEach(badge => {
+                    badge.setAttribute('contenteditable', 'false');
+                });
+
+                // Revert Button appearance
+                btn.innerHTML = `<i class="fa-solid fa-pen-to-square"></i> <span>Modo Edición</span>`;
+                btn.classList.remove('bg-emerald-600', 'hover:bg-emerald-700', 'text-white');
+                btn.classList.add('bg-amber-500', 'hover:bg-amber-600', 'text-slate-900');
+
+                showToast("Cambios guardados localmente. ¡Listo para exportar!");
+            }
+        }
+
+        // Change global visual theme easily
+        function changeTheme(themeName) {
+            // Remove active style from all theme buttons
+            document.querySelectorAll('.theme-btn').forEach(btn => {
+                btn.classList.remove('bg-blue-600', 'text-white');
+                btn.classList.add('text-slate-300', 'hover:text-white');
+            });
+
+            const banner = document.getElementById('theme-banner');
+            const elementsToPaint = document.querySelectorAll('.text-brand-900');
+            const roleLabels = document.querySelectorAll('.text-brand-600');
+            const textAccents = document.querySelectorAll('.text-brand-800');
+
+            if (themeName === 'navy') {
+                document.getElementById('btn-navy').classList.add('bg-blue-600', 'text-white');
+                banner.className = 'no-print h-2.5 bg-gradient-to-r from-slate-900 via-blue-900 to-blue-500';
+
+                elementsToPaint.forEach(el => el.style.color = '#1e3a8a');
+                roleLabels.forEach(el => el.style.color = '#2563eb');
+                textAccents.forEach(el => el.style.color = '#1e40af');
+                showToast("Tema de color cambiado a: Azul Ejecutivo");
+            }
+            else if (themeName === 'sapphire') {
+                document.getElementById('btn-sapphire').classList.add('bg-blue-600', 'text-white');
+                banner.className = 'no-print h-2.5 bg-gradient-to-r from-sky-950 via-teal-800 to-emerald-500';
+
+                elementsToPaint.forEach(el => el.style.color = '#0d9488'); // Teal 600
+                roleLabels.forEach(el => el.style.color = '#0f766e'); // Teal 700
+                textAccents.forEach(el => el.style.color = '#115e59'); // Teal 800
+                showToast("Tema de color cambiado a: Zafiro Tech");
+            }
+            else if (themeName === 'slate') {
+                document.getElementById('btn-slate').classList.add('bg-blue-600', 'text-white');
+                banner.className = 'no-print h-2.5 bg-gradient-to-r from-zinc-900 via-zinc-700 to-zinc-500';
+
+                elementsToPaint.forEach(el => el.style.color = '#27272a'); // Zinc 800
+                roleLabels.forEach(el => el.style.color = '#52525b'); // Zinc 600
+                textAccents.forEach(el => el.style.color = '#3f3f46'); // Zinc 700
+                showToast("Tema de color cambiado a: Gris Minimal");
+            }
+        }
+
+        // Action: Copy text context smoothly to clipboard
+        function copyContact(text, successMessage) {
+            // Using a hidden dynamic textarea for broad compatibility
+            const tempInput = document.createElement("textarea");
+            tempInput.value = text;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand("copy");
+            document.body.removeChild(tempInput);
+
+            showToast(successMessage);
+        }
+
+        // Display beautiful toast banner
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            const toastMsg = document.getElementById('toast-message');
+
+            toastMsg.innerText = message;
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            toast.classList.add('translate-y-0', 'opacity-100');
+
+            setTimeout(() => {
+                toast.classList.remove('translate-y-0', 'opacity-100');
+                toast.classList.add('translate-y-20', 'opacity-0');
+            }, 4000);
+        }
+    </script>
+</body>
+
+</html>

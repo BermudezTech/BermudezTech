@@ -43,7 +43,7 @@ Especializado en el ecosistema JavaScript/TypeScript, mi fuerte es el desarrollo
 
 <div style="display: flex; flex-wrap: wrap; gap: 5px;">
   <img src="https://img.shields.io/badge/DOCKER-logo?logo=docker&amp;logoColor=white&amp;labelColor=1e40af&amp;color=141413" alt="Docker" style="height: 25px;">
-  <img src="https://img.shields.io/badge/AWS-logo?logo=amazonwebservices&amp;logoColor=white&amp;labelColor=1e40af&amp;color=141413" alt="AWS" style="height: 25px;">
+  <img src="https://img.shields.io/badge/AWS-logo?logo=serverfault&amp;logoColor=white&amp;labelColor=1e40af&amp;color=141413" alt="AWS" style="height: 25px;">
   <img src="https://img.shields.io/badge/GIT-logo?logo=git&amp;logoColor=white&amp;labelColor=1e40af&amp;color=141413" alt="Git" style="height: 25px;">
   <img src="https://img.shields.io/badge/GITHUB-logo?logo=github&amp;logoColor=white&amp;labelColor=1e40af&amp;color=141413" alt="GitHub" style="height: 25px;">
 </div>

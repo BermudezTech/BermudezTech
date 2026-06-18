@@ -20,11 +20,35 @@ Especializado en el ecosistema JavaScript/TypeScript, mi fuerte es el desarrollo
 
 #### 🔹 Frontend y Clientes Multiplataforma
 
-![TypeScript](https://img.shields.io/badge/TYPESCRIPT-logo?logo=typescript&logoColor=white&labelColor=007d00&color=141413)![React](https://img.shields.io/badge/REACT-logo?logo=react&logoColor=white&labelColor=007d00&color=141413)![Next.js](https://img.shields.io/badge/NEXT.JS-logo?logo=nextdotjs&logoColor=white&labelColor=007d00&color=141413)![React Native](https://img.shields.io/badge/REACT_NATIVE-logo?logo=react&logoColor=white&labelColor=007d00&color=141413)![Electron](https://img.shields.io/badge/ELECTRON-logo?logo=electron&logoColor=white&labelColor=007d00&color=141413)![Tailwind CSS](https://img.shields.io/badge/TAILWIND_CSS-logo?logo=tailwindcss&logoColor=white&labelColor=007d00&color=141413)#### 🔹 Backend, APIs y Datos
+<div style="display: flex; flex-wrap: wrap; gap: 5px;">
+  <img src="https://img.shields.io/badge/TYPESCRIPT-logo?logo=typescript&amp;logoColor=white&amp;labelColor=1e40af&amp;color=141413" alt="TypeScript" style="height: 25px;">
+  <img src="https://img.shields.io/badge/REACT-logo?logo=react&amp;logoColor=white&amp;labelColor=1e40af&amp;color=141413" alt="React" style="height: 25px;">
+  <img src="https://img.shields.io/badge/NEXT.JS-logo?logo=nextdotjs&amp;logoColor=white&amp;labelColor=1e40af&amp;color=141413" alt="Next.js" style="height: 25px;">
+  <img src="https://img.shields.io/badge/REACT_NATIVE-logo?logo=react&amp;logoColor=white&amp;labelColor=1e40af&amp;color=141413" alt="React Native" style="height: 25px;">
+  <img src="https://img.shields.io/badge/ELECTRON-logo?logo=electron&amp;logoColor=white&amp;labelColor=1e40af&amp;color=141413" alt="Electron" style="height: 25px;">
+  <img src="https://img.shields.io/badge/TAILWIND_CSS-logo?logo=tailwindcss&amp;logoColor=white&amp;labelColor=1e40af&amp;color=141413" alt="Tailwind CSS" style="height: 25px;">
+</div>
 
-![Node.js](https://img.shields.io/badge/NODE_JS-logo?logo=nodedotjs&logoColor=white&labelColor=007d00&color=141413)![NestJS](https://img.shields.io/badge/NESTJS-logo?logo=nestjs&logoColor=white&labelColor=007d00&color=141413)![Prisma](https://img.shields.io/badge/PRISMA-logo?logo=prisma&logoColor=white&labelColor=007d00&color=141413)![PostgreSQL](https://img.shields.io/badge/POSTGRESQL-logo?logo=postgresql&logoColor=white&labelColor=007d00&color=141413)![MySQL](https://img.shields.io/badge/MYSQL-logo?logo=mysql&logoColor=white&labelColor=007d00&color=141413)#### 🔹 DevOps e Infraestructura
+#### 🔹 Backend, APIs y Datos
 
-![Docker](https://img.shields.io/badge/DOCKER-logo?logo=docker&logoColor=white&labelColor=007d00&color=141413)![AWS](https://img.shields.io/badge/AWS-logo?logo=amazonwebservices&logoColor=white&labelColor=007d00&color=141413)![Git](https://img.shields.io/badge/GIT-logo?logo=git&logoColor=white&labelColor=007d00&color=141413)![GitHub](https://img.shields.io/badge/GITHUB-logo?logo=github&logoColor=white&labelColor=007d00&color=141413)\---
+<div style="display: flex; flex-wrap: wrap; gap: 5px;">
+  <img src="https://img.shields.io/badge/NODE_JS-logo?logo=nodedotjs&amp;logoColor=white&amp;labelColor=1e40af&amp;color=141413" alt="Node.js" style="height: 25px;">
+  <img src="https://img.shields.io/badge/NESTJS-logo?logo=nestjs&amp;logoColor=white&amp;labelColor=1e40af&amp;color=141413" alt="NestJS" style="height: 25px;">
+  <img src="https://img.shields.io/badge/PRISMA-logo?logo=prisma&amp;logoColor=white&amp;labelColor=1e40af&amp;color=141413" alt="Prisma" style="height: 25px;">
+  <img src="https://img.shields.io/badge/POSTGRESQL-logo?logo=postgresql&amp;logoColor=white&amp;labelColor=1e40af&amp;color=141413" alt="PostgreSQL" style="height: 25px;">
+  <img src="https://img.shields.io/badge/MYSQL-logo?logo=mysql&amp;logoColor=white&amp;labelColor=1e40af&amp;color=141413" alt="MySQL" style="height: 25px;">
+</div>
+
+#### 🔹 DevOps e Infraestructura
+
+<div style="display: flex; flex-wrap: wrap; gap: 5px;">
+  <img src="https://img.shields.io/badge/DOCKER-logo?logo=docker&amp;logoColor=white&amp;labelColor=1e40af&amp;color=141413" alt="Docker" style="height: 25px;">
+  <img src="https://img.shields.io/badge/AWS-logo?logo=amazonwebservices&amp;logoColor=white&amp;labelColor=1e40af&amp;color=141413" alt="AWS" style="height: 25px;">
+  <img src="https://img.shields.io/badge/GIT-logo?logo=git&amp;logoColor=white&amp;labelColor=1e40af&amp;color=141413" alt="Git" style="height: 25px;">
+  <img src="https://img.shields.io/badge/GITHUB-logo?logo=github&amp;logoColor=white&amp;labelColor=1e40af&amp;color=141413" alt="GitHub" style="height: 25px;">
+</div>
+
+---
 
 Me enfoco en escribir código limpio, mantenible y estructurado bajo buenas prácticas de ingeniería, siempre con una mentalidad orientada al producto y al impacto medible en el negocio.
 
